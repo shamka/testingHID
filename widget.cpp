@@ -159,7 +159,7 @@ void Widget::startWorkInAThread()
 {
     workerThread = new WorkerThread();
     workerThread->hidDevice=&hidDevice;
-    connect(workerThread, SIGNAL(resultReady(const quint8,quint32)), this, SLOT(onRecvFromHID(const quint8*,quint32)));
+    connect(workerThread, SIGNAL(resultReady(const quint8*,quint32)), this, SLOT(onRecvFromHID(const quint8*,quint32)));
     connect(workerThread, SIGNAL(finished()), workerThread, SLOT(deleteLater()));
     connect(workerThread, SIGNAL(testDisconnection()), this, SLOT(testDisconnect()));
     connect(workerThread, SIGNAL(setBLed(bool)),this,SLOT(setBoardLed(bool)));
