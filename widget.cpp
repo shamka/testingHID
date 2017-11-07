@@ -28,14 +28,14 @@ Widget::Widget(QWidget *parent) :
     connect(ui->mBtnConnect,SIGNAL(clicked()),this,SLOT(testConnect()));
     connect(this,SIGNAL(monListEmpty()),this,SLOT(onListEmpty()));
     connect(this,SIGNAL(monListNotEmpty()),this,SLOT(onListNotEmpty()));
-    connect(ui->mBtnUpdate,SIGNAL(clicked()),this,SLOT(makeListOfDevs()));
+    connect(ui->mBtnUpdate,SIGNAL(clicked()),this,SLOT(updateDevList()));
     connect(ui->mBtnExit,SIGNAL(clicked()),this,SLOT(onClose()));
 
     connect(ui->mChkLed,SIGNAL(clicked(bool)),this,SLOT(setBoardLed(bool)));
     connect(ui->mChkReset,SIGNAL(clicked(bool)),this,SLOT(setBTReset(bool)));
     connect(ui->mChkKey,SIGNAL(clicked(bool)),this,SLOT(setBTKey(bool)));
 
-    makeListOfDevs();
+    updateDevList();
     onDisconnect();
     startWorkInAThread();
 }
@@ -52,7 +52,7 @@ Widget::~Widget()
     delete ui;
 }
 
-void Widget::makeListOfDevs()
+void Widget::updateDevList()
 {
     if(listEnumDevs!=NULL)
         hid_free_enumeration(listEnumDevs);
@@ -92,7 +92,7 @@ void Widget::testDisconnect()
     if(hidDevice!=NULL){
         hid_close(hidDevice);
         hidDevice=NULL;
-        makeListOfDevs();
+        updateDevList();
     }
     emit monDisonnect();
 }
@@ -135,7 +135,7 @@ void Widget::onListEmpty()
 bool Widget::nativeEvent(const QByteArray &eventType, void *message, long *result)
 {
     result=result+0;
-    if(eventType=="windows_generic_MSG"){
+    //if(eventType=="windows_generic_MSG"){
         //WINDOWS MSG
         MSG *msg = static_cast< MSG * >( message );
         switch(msg->message){
@@ -146,13 +146,13 @@ bool Widget::nativeEvent(const QByteArray &eventType, void *message, long *resul
         //case 1191:
         //case 1249:
             if(hidDevice==NULL){
-                makeListOfDevs();
+                updateDevList();
             }
             return true;
         case WM_CLOSE:
             return (hidDevice!=NULL);
         }
-    }
+    //}
     return false;
 }
 void Widget::startWorkInAThread()

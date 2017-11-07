@@ -54,7 +54,7 @@ private:
     int getCurrent(); //ID 4
     bool setValue(quint8 mask,quint8 val); //ID 6
 public slots:
-    void makeListOfDevs();
+    void updateDevList();
     void testDisconnect();
     bool setBoardLed(bool stat); //ID 8
 private slots:
