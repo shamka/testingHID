@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>556</width>
-    <height>230</height>
+    <width>550</width>
+    <height>268</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -21,8 +21,8 @@
     <rect>
      <x>10</x>
      <y>10</y>
-     <width>537</width>
-     <height>214</height>
+     <width>531</width>
+     <height>251</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -97,16 +97,16 @@
        </widget>
       </item>
       <item>
-       <widget class="QCheckBox" name="mChkKey">
+       <widget class="QCheckBox" name="mChkReset">
         <property name="text">
-         <string>BT &amp;Key</string>
+         <string>BT &amp;Reset</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QCheckBox" name="mChkReset">
+       <widget class="QCheckBox" name="mChkKey">
         <property name="text">
-         <string>BT &amp;Reset</string>
+         <string>BT &amp;Key</string>
         </property>
        </widget>
       </item>
@@ -143,13 +143,6 @@
        </widget>
       </item>
       <item>
-       <widget class="QGraphicsView" name="mKeyBT">
-        <property name="enabled">
-         <bool>false</bool>
-        </property>
-       </widget>
-      </item>
-      <item>
        <widget class="QGraphicsView" name="mRstBT">
         <property name="enabled">
          <bool>false</bool>
@@ -174,6 +167,77 @@
         </property>
         <property name="interactive">
          <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QGraphicsView" name="mKeyBT">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="mMasks" stretch="0,0,0,0,0,0">
+      <property name="spacing">
+       <number>6</number>
+      </property>
+      <property name="sizeConstraint">
+       <enum>QLayout::SetDefaultConstraint</enum>
+      </property>
+      <property name="leftMargin">
+       <number>6</number>
+      </property>
+      <property name="topMargin">
+       <number>6</number>
+      </property>
+      <property name="rightMargin">
+       <number>6</number>
+      </property>
+      <property name="bottomMargin">
+       <number>10</number>
+      </property>
+      <item>
+       <widget class="QCheckBox" name="chbl">
+        <property name="text">
+         <string>Board Led</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="chb1">
+        <property name="text">
+         <string>Boot 1</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="chl1">
+        <property name="text">
+         <string>BT Led 1</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="chl2">
+        <property name="text">
+         <string>BT Led 2</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="chbtrst">
+        <property name="text">
+         <string>BT RST</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="chbtkey">
+        <property name="text">
+         <string>BT KEY</string>
         </property>
        </widget>
       </item>

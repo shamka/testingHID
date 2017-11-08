@@ -46,6 +46,7 @@ private:
     Ui::Widget *ui;
     devInfo listEnumDevs;
     hid_device *hidDevice;
+    quint8 flag_mask,flag_data;
 
     void startWorkInAThread();
     bool openDevice(uchar *path);
@@ -57,6 +58,7 @@ public slots:
     void updateDevList();
     void testDisconnect();
     bool setBoardLed(bool stat); //ID 8
+    //void updateBoardChanges();
 private slots:
     void onRecvFromHID(const quint8 *report, quint32 len);
     void onConnect();
@@ -67,7 +69,7 @@ private slots:
     void onClose();
     bool setBTReset(bool stat); //ID 6
     bool setBTKey(bool stat); //ID 6
-    bool setBoardChanges(quint8 mask); //ID 2
+    bool setBoardChanges(qint16 mask=-1); //ID 2
     bool getBoardChanges(); //ID 2
 signals:
     void monConnect();
